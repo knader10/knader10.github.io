@@ -2,6 +2,8 @@ function truncarParaDuasCasasDecimais(valor) {
   return Math.floor(valor * 100) / 100;
 }
 
+
+
 function calculateSalarioLiquido() {
   // Pegar os valores dos inputs
   var salarioBruto = parseFloat(document.getElementById('salario_bruto').value.replace(',', '.'));
@@ -10,7 +12,7 @@ function calculateSalarioLiquido() {
   var inss = 0;
 
   //primeira faixa 7,%
-  if (salarioBruto <= 1320) { 
+  if (salarioBruto <= 1320) {  
       inss = salarioBruto * 0.075;
   }
 
@@ -37,8 +39,38 @@ function calculateSalarioLiquido() {
   // Calcular o salário líquido
   var salarioLiquido = salarioBruto - inss;
 
+  // formatação para separar ponto e vírgula
+  var salarioFormatado = salarioLiquido.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
+
+  var salarioFormatado2 = inss.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
+
+
+
+
+
+
+
+
+
   // Atualizar os elementos na tabela
   document.getElementById('previdencia_desconto').textContent = inss.toFixed(2);
   document.getElementById('aliquota_previdencia').textContent = (inss / salarioBruto * 100).toFixed(2) + '%';
   document.getElementById('salario_liquido').textContent = salarioLiquido.toFixed(2);
+  document.getElementById('salario_liquido').textContent = salarioFormatado;
+  document.getElementById('previdencia_desconto').textContent = salarioFormatado2;
 }
+
+//função do botão para limpar o formulário
+function limparFormulario() {
+    document.getElementById('salario_bruto').value = '';
+    document.getElementById('previdencia_desconto').textContent = '0,00';
+    document.getElementById('aliquota_previdencia').textContent = '%';
+    document.getElementById('salario_liquido').textContent = '0,00';
+    
+  }
