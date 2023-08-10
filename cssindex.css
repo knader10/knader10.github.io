@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #423c3c;
+  }
+  
+  header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #235392;
+    height: 60px;
+    padding: 0 2rem;
+  }
+  
+  nav {
+    display:none;
+  }
+  
+
+
+
+/* Define o estilo do cabeçalho da página */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #235392;
+  height: 60px;
+  padding: 0 2rem;
+}
+
+
+
+/* Define o estilo do formulário de cálculo */
+form {
+  margin: 80px 30%;
+  background-color: #ece2e2;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgb(10, 9, 9);
+  display: inline-block;
+  text-align: left;
+}
+
+/* Define o estilo das etiquetas do formulário */
+form label, form span {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+/* Define o estilo dos campos de entrada do formulário */
+form input[type="text"], form select {
+  display: inline-block;
+  width: 150px;
+  height: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Define o estilo do botão de enviar do formulário */
+form input[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #b68d57;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Define o estilo do campo de entrada de valores */
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 150px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+/* Define o estilo do botão de limpar do formulário */
+input[type="button"] {
+  padding: 10px 20px;
+  background-color: #235392;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto;
+  font-weight: bold;
+}
+
+/* Define o estilo das seções de resultado */
+#previdencia_desconto,
+#imposto_de_renda_desconto,
+#salario_liquido {
+  background-color: #e8e8e8;
+  color: #333;
+  border-radius: 19px;
+  font-size: 22px;
+  font-weight: bold;
+  display: flow-root ;
+}
+
+
+a {
+  font-size: auto;
+  text-decoration: none;
+}
+a:hover {
+  background-color: #95989e;
+}
+
+
+
+
+
+  
+  

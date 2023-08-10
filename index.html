@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Calculadora</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cssindex.css">
+    <script src="functioncalculo.js"></script>
+  </head>
+  <body>
+
+    <header>
+        <h2>CALCULE AQUI</h2>
+    </header>
+
+
+    <form>
+      Salário Bruto: <input type="text" id="salario_bruto" placeholder="0,00"><br><br>
+      <table style="width:100%">
+        <tr>
+          <td>INSS:</td>
+          <td id="previdencia_desconto"></td>
+          <td id="aliquota_previdencia"></td>
+        </tr>
+        <tr>
+          <td>Salário Líquido:</td>
+          <td id="salario_liquido"></td>
+        </tr>
+      </table>
+       
+      <a href="https://www27.receita.fazenda.gov.br/simulador-irpf/" target="_blank">Link para calcular IRRF</a>
+      <input type="button" value="Calcular" onclick="calculateSalarioLiquido()">
+    </form>
+    <br><br>
+
+   
+    
+  </body>
+
+  <script>
+    setInterval(function() {
+      location.reload();
+    }, 10000); // 10000 milissegundos = 10 segundos
+  </script>
+  
+</html>
