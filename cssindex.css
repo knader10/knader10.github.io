@@ -41,25 +41,25 @@ header {
 }
 
 
-
 /* Define o estilo do formulário de cálculo */
 form {
-  margin: 80px 30% 0 500px;
+  margin: 80px auto; /* Centraliza verticalmente e ajusta horizontalmente */
+  max-width: 500px; /* Define a largura máxima do formulário */
   background-color: #ece2e2;
-  padding: 30px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 40px rgb(10, 9, 9);
-  display: inline-block;
   text-align: left;
   font-weight: bold;
 }
+
 
 /* Define o estilo dos campos de entrada do formulário */
 form input[type="text"], form select {
   display: inline-block;
   width: 150px;
   height: 20px;
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 10px;
   font-weight: bold;
   border-radius: 5px;
@@ -113,16 +113,17 @@ input[type="button"] {
   display: flow-root ;
   margin: 15px;
   font-weight: bold;
-  
-}
 #previdencia_desconto {
   color: #f51b1b;
   font-size: 19px;
   font-weight: bold;
   display: flow-root ;
-  margin: 15px;
+  margin: 8px;
 }
+#aliquota_previdencia { 
+  color: #080807;
 
+}
 
 a {
   font-size: auto;
