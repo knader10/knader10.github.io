@@ -1,0 +1,1 @@
+function updateClock(){let t=new Date,e=document.getElementById("clock"),n=t.getHours().toString().padStart(2,"0"),o=t.getMinutes().toString().padStart(2,"0"),a=t.getSeconds().toString().padStart(2,"0"),d=`${n}:${o}:${a}`;e.textContent=d}setInterval(updateClock,1e3),updateClock();
