@@ -1,1 +1,145 @@
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background-color:#fff}nav{display:none}h2{margin-top:40px;font-family:Verdana;text-align:center;font-size:35px}h4{margin-top:0;font-family:Verdana;text-align:center;font-size:15px;color:hsl(0,100%,50%)}form{margin:25px auto 35px auto;max-width:650px;background-color:#fae8e8;padding:30px;border-radius:10px;box-shadow:0 0 10px #0a0909;text-align:justify;font-weight:700}input[type=text]{padding:5px;font-size:16px;width:150px;border-radius:5px;border:none;font-weight:700}#qtdedependentes{margin-top:5px;padding:3px}td #inssdesc,#irfftab,#irrf_desc,#aliquota_irrf{border-top:1px solid #d5d5d5}form input[type=button]{padding:8px 19px;background-color:#4d534b;color:#fff;border:none;border-radius:10px;font-size:19px;cursor:pointer;text-align:center;font-weight:700;margin:10px auto 0 6.5rem}#salario_liquido{color:#0049d1;font-size:30px;display:flow-root;margin:15px;font-weight:700}#previdencia_desconto,#aliquota_previdencia,#irrf_desc,#aliquota_irrf{font-size:20px;color:hsl(0,100%,50%);font-weight:700px}#aliquota_previdencia,#aliquota_irrf{font-size:18px}#base__irrf{margin-top:9px}a{text-decoration:none;font-size:18px}a:hover{border:2px solid #f60;box-shadow:0 2px 4px rgba(0,0,0,.1);padding:5px;color:#f60}.menu{display:flex;justify-content:space-between;align-items:center;background-color:#0486f0;padding:10px 10px;font-weight:700;font-family:Arial}.logo a{color:#fff;font-size:20px;text-decoration:none}.menu-list{list-style:none;display:flex}.menu-list li{margin:0 15px}.menu-list li a{color:#fff;text-decoration:none}.toggle-menu{display:none;cursor:pointer}.bar{width:25px;height:3px;background-color:#fff;margin:4px 0}@media(max-width:768px){.menu-list{display:none;flex-direction:column;position:absolute;top:60px;left:0;width:100%;z-index:1}.menu-list.active{display:flex}.toggle-menu{display:block}}.msgdia{text-align:center}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+body {
+    font-family:Arial,sans-serif;
+    background-color:#fff
+}
+nav {
+    display:none
+}
+h2 {
+    margin-top:40px;
+    font-family:Verdana;
+    text-align:center;
+    font-size:35px
+}
+h4 {
+    margin-top:0px;
+    font-family:Verdana;
+    text-align:center;
+    font-size:15px;
+    color:hsl(0,100%,50%)
+}
+form {
+    margin:25px auto 35px auto;
+    max-width:650px;
+    background-color:#e4e2e2;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px #0a0909;
+    text-align:justify;
+    font-weight:700
+}
+input[type=text] {
+    padding:5px;
+    font-size:16px;
+    width:150px;
+    border-radius:5px;
+    border:none;
+    font-weight:700
+}
+#qtdedependentes {
+    margin-top:5px;
+    padding:3px
+}
+td #inssdesc,#irfftab,#irrf_desc,#aliquota_irrf {
+    border-top:1px solid #d5d5d5
+}
+form input[type=button] {
+    padding:8px 19px;
+    background-color:#33681f;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:19px;
+    cursor:pointer;
+    text-align:center;
+    font-weight:700;
+    margin:10px auto 0 6.5rem
+}
+#salario_liquido {
+    color:#0049d1;
+    font-size:30px;
+    display:flow-root;
+    margin:15px;
+    font-weight:700
+}
+#previdencia_desconto,#aliquota_previdencia,#irrf_desc,#aliquota_irrf {
+    font-size:20px;
+    color:hsl(0,100%,50%);
+    font-weight:700px
+}
+#aliquota_previdencia,#aliquota_irrf {
+    font-size:18px
+}
+#base__irrf {
+    margin-top:9px
+}
+a {
+    text-decoration:none;
+    font-size:18px
+}
+a:hover {
+    border:2px solid #f60;
+    box-shadow:0 2px 4px rgba(0,0,0,.1);
+    padding:5px;
+    color:#f60
+}
+.menu {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color:#0486f0;
+    padding:10px 10px;
+    font-weight:700;
+    font-family:Arial
+}
+.logo a {
+    color:#fff;
+    font-size:20px;
+    text-decoration:none
+}
+.menu-list {
+    list-style:none;
+    display:flex
+}
+.menu-list li {
+    margin:0 15px
+}
+.menu-list li a {
+    color:#fff;
+    text-decoration:none
+}
+.toggle-menu {
+    display:none;
+    cursor:pointer
+}
+.bar {
+    width:25px;
+    height:3px;
+    background-color:#fff;
+    margin:4px 0
+}
+@media (max-width:768px) {
+    .menu-list {
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:60px;
+        left:0;
+        width:100%;
+        z-index:1
+    }
+    .menu-list.active {
+        display:flex
+    }
+    .toggle-menu {
+        display:block
+    }
+}
+.msgdia {
+    text-align:center
+}
