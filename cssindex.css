@@ -3,236 +3,122 @@
     padding: 0;
     box-sizing: border-box;
 }
-  
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
 }
-  
-nav {
-    display: none; 
-}
-  
+
 .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    background-color: #2196f3; 
+    background-color: #004aad;
     padding: 10px;
-    font-weight: 700;
-    font-family: Arial; 
-}
-  
-.logo a {
-    color: #fff; 
-    font-size: 20px;
-    text-decoration: none;
-}
-  
-.menu-list {
-    list-style: none;
-    display: flex;
-}
-  
-.menu-list li {
-    margin: 0 15px; 
-}
-  
-.menu-list li a {
-    color: #fff; 
-    text-decoration: none;
-}
-  
-.toggle-menu {
-    display: none;
-    cursor: pointer;
-}
-  
-.bar { 
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 4px 0;
-}
-  
-@media (max-width: 768px) {
-    .menu-list {
-      display: none;
-      flex-direction: column; 
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      z-index: 1; 
-    }
-  
-    .menu-list.active {
-      display: flex; 
-    }
-  
-    .toggle-menu {
-      display: block;
-    }
-}
-  
-h2 {
-    margin-top: 40px;
-    font-family: Verdana; 
-    text-align: center;
-    font-size: 40px; 
-}
-  
-h4 {
-    margin-top: 0;
-    font-family: Verdana;
-    text-align: center;
-    font-size: 15px;
-    color: #ff0000;
-}
-  
-form {
-    margin: 25px auto 35px auto; 
-    max-width: 650px;
-    background-color: #e4e2e2; 
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #0a0909; 
-    text-align: justify; 
-    font-weight: 700;
-}
-  
-input[type=text] {
-    padding: 5px;
-    font-size: 16px;
-    width: 150px;
-    border-radius: 5px;
-    border: none; 
-    font-weight: 700;
-}
-  
-#qtdedependentes { 
-    margin-top: 5px;
-    padding: 3px;
-}
-  
-td #inssdesc, #irfftab, #irrf_desc, #aliquota_irrf { 
-    border-top: 1px solid #d5d5d5;
+    text-align: start;
 }
 
-form input[type=button] {
-    padding:8px 19px;
-    background-color:#33681f;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    font-size:19px;
-    cursor:pointer;
-    text-align:center;
-    font-weight:700;
-    margin:10px auto 0 6.5rem
+.logo img {
+    width: 45px;
+    transition: width 0.3s ease;
 }
 
-#salario_liquido {
-    color:#0049d1;
-    font-size:30px;
-    display:flow-root;
-    margin:15px;
-    font-weight:700
-}
-
-#previdencia_desconto,#aliquota_previdencia,#irrf_desc,#aliquota_irrf {
-    font-size:20px;
-    color:#ff0000;
-    font-weight:700px
-}
-
-#aliquota_previdencia,#aliquota_irrf {
-    font-size:18px
-}
-
-#base__irrf {
-    margin-top:9px
-}
-
-a {
-    text-decoration:none;
-    font-size:18px
-}
-
-.menu {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background-color:#4a4a4a;
-    padding:10px 10px;
-    font-weight:700;
-    font-family:Arial;
-    height: 60px;   
-}
-
-.logo a {
-    color:#fff;
-    font-size:20px;
-    text-decoration:none;
-}
-
-.menu-list {
-    list-style:none;
-    display:flex
-}
-
-.menu-list li {
-    margin:0 15px
-}
-
-.menu-list li a {
-    color:#fff;
-    text-decoration:none
-}
-
-.toggle-menu {
-    display:none;
-    cursor:pointer
-}
-
-.bar {
-    width:25px;
-    height:3px;
-    background-color:#fff;
-    margin:4px 0
-}
-
-@media (max-width:768px) {
-    .menu-list {
-        display:none;
-        flex-direction:column;
-        position:absolute;
-        top:60px;
-        left:0;
-        width:100%;
-        z-index:1
-    }
-    .menu-list.active {
-        display:flex
-    }
-    .toggle-menu {
-        display:block
-    }
-}
-
-.msgdia {
-    text-align:center
-}
-
-a>img {
+.logo img:hover {
     width: 50px;
 }
 
-a>img:hover {
-    width: 55px;
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.instagram {
-    width: auto;
-    height: auto;
+.calculator-section h2 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+}
+
+.calculator-section h4 {
+    font-size: 18px;
+    color: #ff3d3d;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+}
+
+.form-group input {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.result-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.result-table td {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.result-table .result td {
+    font-weight: bold;
+    color: #004aad;
+    font-size: 24px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-actions button:hover {
+    background-color: #003499;
+}
+
+.quote-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.quote-section h4 {
+    font-size: 20px;
+    color: #333;
+}
+
+.quote-section p {
+    font-size: 16px;
+    color: #666;
 }
