@@ -1,74 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <title>Calculadora de salário</title>
+    <title>Calculadora de Salário</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Calculadora de Salário, INSS 2024"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="description" content="Calculadora de Salário, INSS 2024">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="cssindex.css">
-    <script src="functioncalculo.js"></script>
+    <link rel="stylesheet" href="./cssindex.css">
+    <script src="./functioncalculo.js" defer></script> <!-- Adicionado defer para carregar o JS após o HTML -->
 </head>
+
 <body>
     <nav class="menu">
         <div class="logo">
-            <a class="instagram" href="https://www.instagram.com/kaled.snader/" target="_blank">
-                <img src="./img/logoInsta.png" alt="logoInsta">
+            <a href="https://www.instagram.com/kaled.snader/" target="_blank">
+                <img src="./img/logoInsta.png" alt="Instagram">
             </a>
-        </div><!--Logo-->
-        <ul class="menu-list">
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-        </ul>
-    </nav><!--Menu-->
+        </div>
+    </nav>
 
-    <h2>Calculadora de Salário</h2>
-    <h4>ATUALIZADA 2024</h4>
+    <main>
+        <section class="calculator-section">
+            <h2>Calculadora de Salário</h2>
+            <h4>Atualizada 2024</h4>
+            <form id="salaryForm">
+                <div class="form-group">
+                    <label for="salario_bruto">Salário Bruto:</label>
+                    <input type="text" id="salario_bruto" placeholder="R$ 0,00" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="qtdedependentes">Dependentes:</label>
+                    <input type="text" id="qtdedependentes" placeholder="0" autocomplete="off">
+                </div>
+                <div class="result-table">
+                    <table>
+                        <tr>
+                            <td>INSS:</td>
+                            <td id="previdencia_desconto">0,00</td>
+                            <td id="aliquota_previdencia">%</td>
+                        </tr>
+                        <tr>
+                            <td>IRRF:</td>
+                            <td id="irrf_desc">0,00</td>
+                            <td id="aliquota_irrf">%</td>
+                        </tr>
+                        <tr class="result">
+                            <td>Salário Líquido:</td>
+                            <td id="salario_liquido" colspan="2">0,00</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="calculateSalarioLiquido()">Calcular</button>
+                    <button type="reset" onclick="limparFormulario()">Limpar</button>
+                </div>
+            </form>
+        </section>
 
-    <form action>
-      <div class="form_calc">
-        <label for="salario_bruto">Salário:</label>
-        <input type="text" id="salario_bruto" placeholder="0,00" autocomplete="off" onkeydown="handleKeyPress(event)" />
-
-        <label for="qtdedependentes">Dependentes:</label>
-        <input type="text" id="qtdedependentes" placeholder="0" autocomplete="off"  onkeydown="handleKeyPress(event)" />
-      </div><!--Form_Calc-->
-
-      <table style="width: 100%;">
-        <tr>
-          <td id="inssdesc">INSS:</td>
-          <td id="previdencia_desconto"></td>
-          <td id="aliquota_previdencia"></td>
-        </tr>
-        <tr>
-          <td id="irfftab">IRRF:</td>
-          <td id="irrf_desc"></td>
-          <td id="aliquota_irrf"></td>
-        </tr>
-        <tr id="resultliquido">
-          <td>Salário Liquido:</td>
-          <td id="salario_liquido" colspan="2"></td>
-        </tr>
-      </table>
-
-      <input type="button" value="Calcular" onclick="calculateSalarioLiquido()"/>
-      <input type="button" value="Limpar" onclick="limparFormulario()"/>
-    </form>
-    <div class="msgdia">
-      <h4>Frase do dia:</h4>
-      <p>O trabalho em equipe é a base do sucesso no mundo profissional. Colabore, compartilhe e cresça com seus colegas." - Autor Desconhecido</p>
-    </div>
+        <section class="quote-section">
+            <h4>Frase do Dia</h4>
+            <p>"O trabalho em equipe é a base do sucesso no mundo profissional. Colabore, compartilhe e cresça com seus
+                colegas." - Autor Desconhecido</p>
+        </section>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
     <script>
-      $(document).ready(function(){
-        $("#salario_bruto").mask("R$ 00.000.000,00", {
-          reverse: true
+        $(document).ready(function () {
+            $("#salario_bruto").mask("R$ 00.000.000,00", { reverse: true });
+            $("#salario_bruto").on('keypress', function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    calculateSalarioLiquido(); // Chama a função de cálculo
+                }
+            });
         });
-      });
     </script>
-  </body>
+</body>
+
 </html>
