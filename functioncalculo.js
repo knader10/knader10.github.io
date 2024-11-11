@@ -49,34 +49,48 @@ function calculateSalarioLiquido() {
   let dependentes = parseInt(document.getElementById("qtdedependentes").value) || 0;
   let dependentes_deducao = dependentes > 0 ? irrf_trunc(dependentes * 189.59) : 0;
 
-  let baseIRRF = irrf_trunc(salarioBruto - inss_desc - dependentes_deducao);
+  let soma_para_base_irrf = irrf_trunc(inss_desc + dependentes_deducao);
+  let bas_deducao = soma_para_base_irrf;
+  
+  if (bas_deducao <= 564.80) {
+         baseIRRF = irrf_trunc(salarioBruto - 564.80);
+  }
+   else {
+         baseIRRF = irrf_trunc(salarioBruto - bas_deducao);
+   }
 
+let base_de_calculo_irrf = baseIRRF;
   let aliquotaIRRF = 0;
   let deducaoIRRF = 0;
-  let aliqirrf = '0%';
+  let aliqirrf = 0;
+   
+ 
+ // isenção de irrf 
+ if (base_de_calculo_irrf <= 2259.20) {
+   aliqirrf = '%';
+   deducaoIRRF = '0'
+ } else if (base_de_calculo_irrf <= 2826.65) {
+   aliqirrf = '7,5%';
+   aliquotaIRRF = 0.075;
+   deducaoIRRF = 169.44;  // Dedução para faixa de 2.112,01 até 2.826,65
+ } else if (base_de_calculo_irrf <= 3751.05) { 
+   aliqirrf = '15%';
+   aliquotaIRRF = 0.15;
+   deducaoIRRF = 381.44;  // Dedução para faixa de 2.826,66 até 3.751,05
+ } else if (base_de_calculo_irrf <= 4664.68) {
+   aliqirrf = '22,5%';
+   aliquotaIRRF = 0.225;
+   deducaoIRRF = 662.77;  // Dedução para faixa de 3.751,06 até 4.664,68
+ } else if (base_de_calculo_irrf >= 4664.69) { 
+   aliqirrf = '27,5%';
+   aliquotaIRRF = 0.275;
+   deducaoIRRF = 896.00;  // Dedução para faixa acima de 4.664,68
+ }
+ 
 
-  if (baseIRRF <= 2259.20) {
-    aliqirrf = 'Isento';
-  } else if (baseIRRF <= 2826.65) {
-    aliquotaIRRF = 0.075;
-    deducaoIRRF = 169.44;
-    aliqirrf = '7,5%';
-  } else if (baseIRRF <= 3751.05) {
-    aliquotaIRRF = 0.15;
-    deducaoIRRF = 381.44;
-    aliqirrf = '15%';
-  } else if (baseIRRF <= 4664.68) {
-    aliquotaIRRF = 0.225;
-    deducaoIRRF = 662.77;
-    aliqirrf = '22,5%';
-  } else {
-    aliquotaIRRF = 0.275;
-    deducaoIRRF = 896.00;
-    aliqirrf = '27,5%';
-  }
+ let result_irrf = irrf_trunc((base_de_calculo_irrf * (aliquotaIRRF * 100)) / 100) - deducaoIRRF;
 
-  let result_irrf = irrf_trunc((baseIRRF * aliquotaIRRF) - deducaoIRRF);
-  result_irrf = result_irrf >= 0 ? result_irrf : 0;
+ result_irrf = result_irrf >= 0 ? result_irrf : 0;
 
   let salarioLiquido = trunc(salarioBruto - inss_desc - result_irrf);
 
