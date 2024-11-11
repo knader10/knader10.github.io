@@ -55,7 +55,7 @@ function calculateSalarioLiquido() {
   let deducaoIRRF = 0;
   let aliqirrf = '0%';
 
-  if (baseIRRF <= 2112.00) {
+  if (baseIRRF <= 2259.20) {
     aliqirrf = 'Isento';
   } else if (baseIRRF <= 2826.65) {
     aliquotaIRRF = 0.075;
