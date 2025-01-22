@@ -27,20 +27,20 @@ function calculateSalarioLiquido() {
   let inss = 0;
   let aliquota_previdencia = '';
 
-  if (salarioBruto <= 1412) {
+  if (salarioBruto <= 1518) {
     inss = trunc(salarioBruto * 0.075);
     aliquota_previdencia = '7,5%';
-  } else if (salarioBruto <= 2666.68) {
-    inss = trunc(1412 * 0.075) + trunc((salarioBruto - 1412.01) * 0.09);
+  } else if (salarioBruto <= 2793.88) {
+    inss = trunc(1518 * 0.075) + trunc((salarioBruto - 1518.01) * 0.09);
     aliquota_previdencia = '9%';
-  } else if (salarioBruto <= 4000.03) {
-    inss = trunc(1412 * 0.075) + trunc((2666.68 - 1412.01) * 0.09) + trunc((salarioBruto - 2666.69) * 0.12);
+  } else if (salarioBruto <= 4190.83) {
+    inss = trunc(1518 * 0.075) + trunc((2793.88 - 1518.01) * 0.09) + trunc((salarioBruto - 2793.89) * 0.12);
     aliquota_previdencia = '12%';
-  } else if (salarioBruto <= 7786.02) {
-    inss = trunc(1412 * 0.075) + trunc((2666.68 - 1412.01) * 0.09) + trunc((4000.03 - 2666.69) * 0.12) + trunc((salarioBruto - 4000.04) * 0.14);
+  } else if (salarioBruto <= 8157.41) {
+    inss = trunc(1518 * 0.075) + trunc((2793.88 - 1518.01) * 0.09) + trunc((4190.83 - 2793.89) * 0.12) + trunc((salarioBruto - 4000.04) * 0.14);
     aliquota_previdencia = '14%';
   } else {
-    inss = 908.85;
+    inss = 951.62;
     aliquota_previdencia = '14%';
   }
 
