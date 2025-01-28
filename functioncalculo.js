@@ -37,7 +37,7 @@ function calculateSalarioLiquido() {
     inss = trunc(1518 * 0.075) + trunc((2793.88 - 1518.01) * 0.09) + trunc((salarioBruto - 2793.89) * 0.12);
     aliquota_previdencia = '12%';
   } else if (salarioBruto <= 8157.41) {
-    inss = trunc(1518 * 0.075) + trunc((2793.88 - 1518.01) * 0.09) + trunc((4190.83 - 2793.89) * 0.12) + trunc((salarioBruto - 4000.04) * 0.14);
+    inss = trunc(1518 * 0.075) + trunc((2793.88 - 1518.01) * 0.09) + trunc((4190.83 - 2793.89) * 0.12) + trunc((salarioBruto - 4190.84) * 0.14);
     aliquota_previdencia = '14%';
   } else {
     inss = 951.62;
@@ -51,46 +51,46 @@ function calculateSalarioLiquido() {
 
   let soma_para_base_irrf = irrf_trunc(inss_desc + dependentes_deducao);
   let bas_deducao = soma_para_base_irrf;
-  
-  if (bas_deducao <= 564.80) {
-         baseIRRF = irrf_trunc(salarioBruto - 564.80);
-  }
-   else {
-         baseIRRF = irrf_trunc(salarioBruto - bas_deducao);
-   }
 
-let base_de_calculo_irrf = baseIRRF;
+  if (bas_deducao <= 564.80) {
+    baseIRRF = irrf_trunc(salarioBruto - 564.80);
+  }
+  else {
+    baseIRRF = irrf_trunc(salarioBruto - bas_deducao);
+  }
+
+  let base_de_calculo_irrf = baseIRRF;
   let aliquotaIRRF = 0;
   let deducaoIRRF = 0;
   let aliqirrf = 0;
-   
- 
- // isenção de irrf 
- if (base_de_calculo_irrf <= 2259.20) {
-   aliqirrf = '%';
-   deducaoIRRF = '0'
- } else if (base_de_calculo_irrf <= 2826.65) {
-   aliqirrf = '7,5%';
-   aliquotaIRRF = 0.075;
-   deducaoIRRF = 169.44;  // Dedução para faixa de 2.112,01 até 2.826,65
- } else if (base_de_calculo_irrf <= 3751.05) { 
-   aliqirrf = '15%';
-   aliquotaIRRF = 0.15;
-   deducaoIRRF = 381.44;  // Dedução para faixa de 2.826,66 até 3.751,05
- } else if (base_de_calculo_irrf <= 4664.68) {
-   aliqirrf = '22,5%';
-   aliquotaIRRF = 0.225;
-   deducaoIRRF = 662.77;  // Dedução para faixa de 3.751,06 até 4.664,68
- } else if (base_de_calculo_irrf >= 4664.69) { 
-   aliqirrf = '27,5%';
-   aliquotaIRRF = 0.275;
-   deducaoIRRF = 896.00;  // Dedução para faixa acima de 4.664,68
- }
- 
 
- let result_irrf = irrf_trunc((base_de_calculo_irrf * (aliquotaIRRF * 100)) / 100) - deducaoIRRF;
 
- result_irrf = result_irrf >= 0 ? result_irrf : 0;
+  // isenção de irrf 
+  if (base_de_calculo_irrf <= 2259.20) {
+    aliqirrf = '%';
+    deducaoIRRF = '0'
+  } else if (base_de_calculo_irrf <= 2826.65) {
+    aliqirrf = '7,5%';
+    aliquotaIRRF = 0.075;
+    deducaoIRRF = 169.44;  // Dedução para faixa de 2.112,01 até 2.826,65
+  } else if (base_de_calculo_irrf <= 3751.05) {
+    aliqirrf = '15%';
+    aliquotaIRRF = 0.15;
+    deducaoIRRF = 381.44;  // Dedução para faixa de 2.826,66 até 3.751,05
+  } else if (base_de_calculo_irrf <= 4664.68) {
+    aliqirrf = '22,5%';
+    aliquotaIRRF = 0.225;
+    deducaoIRRF = 662.77;  // Dedução para faixa de 3.751,06 até 4.664,68
+  } else if (base_de_calculo_irrf >= 4664.69) {
+    aliqirrf = '27,5%';
+    aliquotaIRRF = 0.275;
+    deducaoIRRF = 896.00;  // Dedução para faixa acima de 4.664,68
+  }
+
+
+  let result_irrf = irrf_trunc((base_de_calculo_irrf * (aliquotaIRRF * 100)) / 100) - deducaoIRRF;
+
+  result_irrf = result_irrf >= 0 ? result_irrf : 0;
 
   let salarioLiquido = trunc(salarioBruto - inss_desc - result_irrf);
 
