@@ -40,7 +40,7 @@ function calculateSalarioLiquido() {
     inss = trunc(1621 * 0.075) + trunc((2902.84 - 1621.01) * 0.09) + trunc((4354.27 - 2902.85) * 0.12) + trunc((salarioBruto - 4354.28) * 0.14);
     aliquota_previdencia = '14%';
   } else {
-    inss = 951.62;
+    inss = 988.07;
     aliquota_previdencia = '14%';
   }
 
