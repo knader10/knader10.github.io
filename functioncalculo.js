@@ -92,10 +92,7 @@ function calculateSalarioLiquido() {
 
   result_irrf = result_irrf >= 0 ? result_irrf : 0;
 
-  // Regra de redução do IRRF 2026
-  // Quem ganha até R$ 5.000: isento (redução total do imposto)
-  // Quem ganha de R$ 5.000,01 a R$ 7.350: redução parcial = R$ 978,62 - (0,133145 × renda mensal)
-  // Acima de R$ 7.350: sem redução adicional
+
   let reducaoIRRF = 0;
   
   if (salarioBruto <= 5000) {
