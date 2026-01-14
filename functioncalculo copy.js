@@ -92,19 +92,17 @@ function calculateSalarioLiquido() {
 
   result_irrf = result_irrf >= 0 ? result_irrf : 0;
 
-  // Regra de redução do IRRF 2026
-  // Quem ganha até R$ 5.000: isento (redução total do imposto)
-  // Quem ganha de R$ 5.000,01 a R$ 7.350: redução parcial = R$ 978,62 - (0,133145 × renda mensal)
-  // Acima de R$ 7.350: sem redução adicional
+  // Regra 2026: Redução do IRRF para quem ganha até R$ 7.350
   let reducaoIRRF = 0;
-  
   if (salarioBruto <= 5000) {
-    reducaoIRRF = result_irrf; // Zera o imposto completamente
+    // Até R$ 5.000: redução de até R$ 312,89 (zera o imposto)
+    reducaoIRRF = Math.min(result_irrf, 312.89);
   } else if (salarioBruto <= 7350) {
-    reducaoIRRF = 978.62 - (0.133145 * salarioBruto);
-    reducaoIRRF = reducaoIRRF > 0 ? reducaoIRRF : 0;
-    reducaoIRRF = Math.min(result_irrf, reducaoIRRF); // Redução não pode ser maior que o imposto
+    // De R$ 5.000,01 a R$ 7.350: redução parcial decrescente
+    reducaoIRRF = irrf_trunc(978.62 - (0.133145 * salarioBruto));
+    reducaoIRRF = reducaoIRRF >= 0 ? Math.min(reducaoIRRF, result_irrf) : 0;
   }
+  // Acima de R$ 7.350,01: sem redução
 
   result_irrf = irrf_trunc(result_irrf - reducaoIRRF);
   result_irrf = result_irrf >= 0 ? result_irrf : 0;
