@@ -5,21 +5,21 @@
 }
 
 :root {
-    --ink: #121826;
-    --ink-soft: #4b5563;
-    --accent: #ff6b35;
-    --accent-dark: #cc4f22;
-    --surface: rgba(255, 255, 255, 0.92);
-    --surface-strong: rgba(255, 255, 255, 0.98);
-    --stroke: rgba(15, 23, 42, 0.12);
-    --shadow: 0 24px 60px rgba(10, 15, 30, 0.18);
+    --ink: #1f2937;
+    --ink-soft: #6b7280;
+    --accent: #f97316;
+    --accent-dark: #c2410c;
+    --surface: rgba(255, 255, 255, 0.96);
+    --surface-strong: rgba(255, 255, 255, 0.99);
+    --stroke: rgba(15, 23, 42, 0.08);
+    --shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
 
 body {
     font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
     color: var(--ink);
     line-height: 1.6;
-    background: url('./background.png') center/cover no-repeat fixed;
+    background: url('./background.png') top center / cover no-repeat fixed;
     min-height: 100vh;
 }
 
@@ -27,15 +27,15 @@ body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: linear-gradient(120deg, rgba(10, 20, 35, 0.7), rgba(10, 20, 35, 0.25));
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.25));
     z-index: -1;
 }
 
 .menu {
     display: flex;
     align-items: center;
-    padding: 16px 24px;
-    background: rgba(12, 18, 30, 0.75);
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(6px);
 }
 
@@ -49,31 +49,31 @@ body::before {
 }
 
 .page {
-    max-width: 1100px;
-    margin: 40px auto 60px;
-    padding: 28px;
+    max-width: 980px;
+    margin: 20px auto 24px;
+    padding: 18px;
     background: var(--surface);
-    border-radius: 28px;
+    border-radius: 20px;
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 18px;
 }
 
 .hero {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 24px;
+    gap: 14px;
     border-bottom: 1px solid var(--stroke);
-    padding-bottom: 24px;
+    padding-bottom: 12px;
 }
 
 .hero-text h1 {
     font-family: 'Fraunces', 'Times New Roman', serif;
-    font-size: clamp(32px, 4vw, 46px);
+    font-size: clamp(26px, 3.2vw, 38px);
     line-height: 1.1;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .hero-text .eyebrow {
@@ -87,39 +87,42 @@ body::before {
 .hero-text .subtitle {
     color: var(--ink-soft);
     max-width: 520px;
+    font-size: 14px;
 }
 
 .hero-badge {
     background: var(--surface-strong);
     border: 1px solid var(--stroke);
-    padding: 12px 18px;
+    padding: 8px 14px;
     border-radius: 999px;
     font-weight: 600;
     color: var(--accent-dark);
     box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+    font-size: 13px;
 }
 
 .calculator-shell {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .mode-switch {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
 }
 
 .mode-btn {
     border: 1px solid var(--stroke);
     background: var(--surface-strong);
     color: var(--ink);
-    padding: 10px 18px;
+    padding: 8px 14px;
     border-radius: 999px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.25s ease;
+    font-size: 13px;
 }
 
 .mode-btn.is-active {
@@ -137,9 +140,9 @@ body::before {
 .calculator {
     display: none;
     background: var(--surface-strong);
-    border-radius: 20px;
+    border-radius: 16px;
     border: 1px solid var(--stroke);
-    padding: 24px;
+    padding: 16px;
     box-shadow: 0 12px 26px rgba(10, 10, 20, 0.08);
     animation: fadeIn 0.35s ease;
 }
@@ -149,43 +152,45 @@ body::before {
 }
 
 .calculator-header h2 {
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 6px;
 }
 
 .calculator-header p {
     color: var(--ink-soft);
-    margin-bottom: 18px;
+    margin-bottom: 10px;
+    font-size: 13px;
 }
 
 form {
     display: grid;
-    gap: 16px;
+    gap: 10px;
 }
 
 .form-group {
     display: grid;
     grid-template-columns: minmax(130px, 180px) 1fr;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
 }
 
 .form-group label {
     font-weight: 600;
+    font-size: 13px;
 }
 
 .form-group input {
-    padding: 12px 14px;
-    border-radius: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
     border: 1px solid var(--stroke);
-    font-size: 16px;
+    font-size: 14px;
     background: #fff;
 }
 
 .result-table {
     background: rgba(15, 23, 42, 0.04);
-    border-radius: 16px;
-    padding: 12px 8px;
+    border-radius: 12px;
+    padding: 8px 6px;
 }
 
 .result-table table {
@@ -194,29 +199,29 @@ form {
 }
 
 .result-table td {
-    padding: 10px 8px;
-    font-size: 16px;
+    padding: 8px 6px;
+    font-size: 14px;
     text-align: center;
 }
 
 .result-table .result td {
     font-weight: 700;
     color: var(--accent-dark);
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .form-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
 }
 
 .form-actions button {
     flex: 1 1 140px;
     border: none;
-    padding: 12px 18px;
-    border-radius: 12px;
-    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -238,26 +243,27 @@ form {
 }
 
 .quote-section {
-    background: rgba(17, 24, 39, 0.92);
-    color: #fff;
-    padding: 24px;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--ink);
+    padding: 16px;
+    border-radius: 16px;
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
 .quote-section h4 {
-    font-size: 18px;
+    font-size: 13px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 10px;
-    color: #fbd38d;
+    margin-bottom: 6px;
+    color: var(--accent-dark);
 }
 
 .quote-section p {
     max-width: 650px;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--ink-soft);
+    font-size: 13px;
 }
 
 @keyframes fadeIn {
@@ -273,8 +279,8 @@ form {
 
 @media (max-width: 900px) {
     .page {
-        margin: 24px 16px 40px;
-        padding: 20px;
+        margin: 16px 12px 24px;
+        padding: 14px;
     }
 
     .hero {
@@ -283,5 +289,19 @@ form {
 
     .form-group {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-text .eyebrow {
+        font-size: 10px;
+    }
+
+    .hero-badge {
+        align-self: flex-start;
+    }
+
+    .result-table td {
+        padding: 6px 4px;
     }
 }
