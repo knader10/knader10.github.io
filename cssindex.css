@@ -98,7 +98,7 @@ body::before {
     border-radius: 999px;
     font-weight: 600;
     color: var(--accent-dark);
-    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+    box-shadow: 0 10px 20px rgba(43, 132, 233, 0.22);
     font-size: 11px;
 }
 
@@ -130,7 +130,7 @@ body::before {
     background: var(--accent);
     color: #fff;
     border-color: transparent;
-    box-shadow: 0 14px 26px rgba(59, 91, 233, 0.28);
+    box-shadow: 0 14px 26px rgba(43, 132, 233, 0.26);
 }
 
 .calculator-grid {
