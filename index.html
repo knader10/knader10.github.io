@@ -4,11 +4,15 @@
 <head>
     <title>Calculadora de Salário</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Calculadora de Salário, INSS 2024">
+    <meta name="description" content="Calculadora de Salário, INSS 2026">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./cssindex.css">
     <script src="./functioncalculo.js" defer></script>
+    <script src="./functioncalculo_irrf.js" defer></script>
 </head>
 
 <body>
@@ -20,48 +24,113 @@
         </div>
     </nav>
 
-    <main>
-        <section class="calculator-section">
-            <h2>Calculadora de Salário</h2>
-            <h4>Atualizada 2026</h4>
-            <form id="salaryForm">
-                <div class="form-group">
-                    <label for="salario_bruto">Salário:</label>
-                    <input type="text" id="salario_bruto" placeholder="R$ 0,00" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="qtdedependentes">Dependentes:</label>
-                    <input type="text" id="qtdedependentes" placeholder="0" autocomplete="off">
-                </div>
-                <div class="result-table">
-                    <table>
-                        <tr>
-                            <td>INSS:</td>
-                            <td id="previdencia_desconto">0,00</td>
-                            <td id="aliquota_previdencia">%</td>
-                        </tr>
-                        <tr>
-                            <td>IRRF:</td>
-                            <td id="irrf_desc">0,00</td>
-                            <td id="aliquota_irrf">%</td>
-                        </tr>
-                        <tr class="result">
-                            <td>Salário Líquido:</td>
-                            <td id="salario_liquido" colspan="2">0,00</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="form-actions">
-                    <button type="button" onclick="calculateSalarioLiquido()">Calcular</button>
-                    <button type="reset" onclick="limparFormulario()">Limpar</button>
-                </div>
-            </form>
+    <main class="page">
+        <header class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">Calculadora</p>
+                <h1>Salário, INSS e IRRF em um clique</h1>
+                <p class="subtitle">Atualizada 2026 com uma nova forma de calcular somente IRRF.</p>
+            </div>
+            <div class="hero-badge">Atualizada 2026</div>
+        </header>
+
+        <section class="calculator-shell">
+            <div class="mode-switch" role="tablist" aria-label="Modo de calculo">
+                <button class="mode-btn is-active" type="button" data-target="calc-normal">Calculo normal</button>
+                <button class="mode-btn" type="button" data-target="calc-irrf">Calculadora IRRF</button>
+            </div>
+
+            <div class="calculator-grid">
+                <section id="calc-normal" class="calculator is-active" role="tabpanel">
+                    <div class="calculator-header">
+                        <h2>Calculo Normal</h2>
+                        <p>Informe salario e dependentes para calcular INSS e IRRF.</p>
+                    </div>
+                    <form id="salaryForm">
+                        <div class="form-group">
+                            <label for="salario_bruto">Salario:</label>
+                            <input type="text" id="salario_bruto" placeholder="R$ 0,00" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="qtdedependentes">Dependentes:</label>
+                            <input type="text" id="qtdedependentes" placeholder="0" autocomplete="off">
+                        </div>
+                        <div class="result-table">
+                            <table>
+                                <tr>
+                                    <td>INSS:</td>
+                                    <td id="previdencia_desconto">0,00</td>
+                                    <td id="aliquota_previdencia">%</td>
+                                </tr>
+                                <tr>
+                                    <td>IRRF:</td>
+                                    <td id="irrf_desc">0,00</td>
+                                    <td id="aliquota_irrf">%</td>
+                                </tr>
+                                <tr class="result">
+                                    <td>Salario liquido:</td>
+                                    <td id="salario_liquido" colspan="2">0,00</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" onclick="calculateSalarioLiquido()">Calcular</button>
+                            <button type="reset" onclick="limparFormulario()">Limpar</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section id="calc-irrf" class="calculator" role="tabpanel">
+                    <div class="calculator-header">
+                        <h2>Calculadora IRRF</h2>
+                        <p>Digite o INSS real e calcule o IRRF com deducao simplificada.</p>
+                    </div>
+                    <form id="salaryFormIrrf">
+                        <div class="form-group">
+                            <label for="salario_bruto_irrf">Salario:</label>
+                            <input type="text" id="salario_bruto_irrf" placeholder="R$ 0,00" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="qtdedependentes_irrf">Dependentes:</label>
+                            <input type="text" id="qtdedependentes_irrf" placeholder="0" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="inss_manual_irrf">INSS (informado):</label>
+                            <input type="text" id="inss_manual_irrf" placeholder="R$ 0,00" autocomplete="off">
+                        </div>
+                        <div class="result-table">
+                            <table>
+                                <tr>
+                                    <td>INSS:</td>
+                                    <td id="previdencia_desconto_irrf">0,00</td>
+                                    <td id="aliquota_previdencia_irrf">Informado</td>
+                                </tr>
+                                <tr>
+                                    <td>IRRF:</td>
+                                    <td id="irrf_desc_irrf">0,00</td>
+                                    <td id="aliquota_irrf_irrf">%</td>
+                                </tr>
+                                <tr class="result">
+                                    <td>Salario liquido:</td>
+                                    <td id="salario_liquido_irrf" colspan="2">0,00</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" onclick="calculateIrrfManual()">Calcular</button>
+                            <button type="reset" onclick="limparFormularioIrrf()">Limpar</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </section>
 
         <section class="quote-section">
-            <h4>Frase do Dia</h4>
-            <p>"O trabalho em equipe é a base do sucesso no mundo profissional. Colabore, compartilhe e cresça com seus
-                colegas." - Autor Desconhecido</p>
+            <div>
+                <h4>Frase do Dia</h4>
+                <p>"O trabalho em equipe e a base do sucesso no mundo profissional. Colabore, compartilhe e cresca com
+                    seus colegas." - Autor Desconhecido</p>
+            </div>
         </section>
     </main>
 
@@ -69,11 +138,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#salario_bruto").mask("R$ 00.000.000,00", { reverse: true });
+            $("#salario_bruto, #salario_bruto_irrf, #inss_manual_irrf").mask("R$ 00.000.000,00", { reverse: true });
             $("#salario_bruto").on('keypress', function (event) {
                 if (event.key === "Enter") {
                     event.preventDefault();
-                    calculateSalarioLiquido(); // Chama a função de cálculo
+                    calculateSalarioLiquido();
+                }
+            });
+            $("#salario_bruto_irrf").on('keypress', function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    calculateIrrfManual();
+                }
+            });
+        });
+    </script>
+    <script>
+        const modeButtons = document.querySelectorAll(".mode-btn");
+        const calculators = document.querySelectorAll(".calculator");
+
+        modeButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const targetId = button.getAttribute("data-target");
+
+                modeButtons.forEach((btn) => btn.classList.remove("is-active"));
+                calculators.forEach((panel) => panel.classList.remove("is-active"));
+
+                button.classList.add("is-active");
+                const targetPanel = document.getElementById(targetId);
+                if (targetPanel) {
+                    targetPanel.classList.add("is-active");
                 }
             });
         });
